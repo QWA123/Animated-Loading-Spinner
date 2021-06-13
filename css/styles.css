@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: rgb(221, 220, 220);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* background-color: pink; */
+}
+.spinner-sector {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  /* when there is no other border the border-top spreads out to give a narrowing shape at end
+     but when we specify another border it ends abruptly giving sharp edge */
+  mix-blend-mode: overlay;
+  /* background-color: rgb(236, 232, 9); */
+}
+.spinner-text {
+  font-size: 2em;
+  animation: loading-opacity 3s ease-in-out infinite;
+}
+.spinner-sector-blue {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  border-top: 15px rgb(4, 233, 54) solid;
+  animation-timing-function: ease-out;
+}
+.spinner-sector-green {
+  animation-name: rotate;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  border-top: 15px rgb(236, 232, 9) solid;
+}
+
+.spinner-sector-red {
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  border-top: 15px rgb(255, 5, 80) solid;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-opacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
